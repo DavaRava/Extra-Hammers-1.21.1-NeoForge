@@ -1,5 +1,6 @@
 package de.davarava.extrahammers;
 
+import de.davarava.extrahammers.item.ModCMT;
 import de.davarava.extrahammers.item.ModItems;
 import org.slf4j.Logger;
 
@@ -50,6 +51,7 @@ public class ExtraHammers {
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModCMT.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
