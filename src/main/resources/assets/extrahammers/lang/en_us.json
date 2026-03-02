@@ -1,13 +1,10 @@
 {
-  "itemGroup.examplemod": "Example Mod Tab",
-  "block.examplemod.example_block": "Example Block",
-  "item.examplemod.example_item": "Example Item",
+  "item.extrahammers.wooden_hammer": "Wooden Hammer",
+  "item.extrahammers.stone_hammer": "Stone Hammer",
+  "item.extrahammers.iron_hammer": "Iron Hammer",
+  "item.extrahammers.golden_hammer": "Golden Hammer",
+  "item.extrahammers.diamond_hammer": "Diamond Hammer",
+  "item.extrahammers.netherite_hammer": "Netherite Hammer"
 
-  "examplemod.configuration.title": "Example Mod Configs",
-  "examplemod.configuration.section.examplemod.common.toml": "Example Mod Configs",
-  "examplemod.configuration.section.examplemod.common.toml.title": "Example Mod Configs",
-  "examplemod.configuration.items": "Item List",
-  "examplemod.configuration.logDirtBlock": "Log Dirt Block",
-  "examplemod.configuration.magicNumberIntroduction": "Magic Number Text",
-  "examplemod.configuration.magicNumber": "Magic Number"
+
 }
