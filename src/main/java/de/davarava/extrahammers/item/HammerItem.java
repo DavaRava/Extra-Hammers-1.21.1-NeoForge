@@ -20,16 +20,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HammerItem extends DiggerItem {
-    // Radius
-    public final int radius;
+    //radius
+    public final int area;
 
-    public HammerItem(Tier tier, Properties properties, int radius) {
+    public HammerItem(Tier tier, Properties properties, int area) {
         super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
-        this.radius = radius;
+        this.area = area;
     }
 
-    //Returns a List with all BLockPoses in the radius
-    public static List<BlockPos> getBlocksToBeDestroyed(Level level, BlockPos initialBlockPos, Player player, int radius) {
+    //returns a list with all BlockPoses in the area
+    public static List<BlockPos> getBlocksToBeDestroyed(Level level, BlockPos initialBlockPos, Player player, int area) {
         List<BlockPos> positions = new ArrayList<>();
 
         // Eyes Direction
@@ -45,16 +45,25 @@ public class HammerItem extends DiggerItem {
 
         Direction face = traceResult.getDirection();
 
-        // Put each BlockPos with the right orientation in the list
-        for(int x = -radius; x <= radius; x++) {
-            for(int y = -radius; y <= radius; y++) {
-                for(int z = -radius; z <= radius; z++) {
-                    BlockPos pos = switch(face) {
-                        case UP, DOWN -> initialBlockPos.offset(x, 0, z);
-                        case NORTH, SOUTH -> initialBlockPos.offset(x, y, 0);
-                        case EAST, WEST -> initialBlockPos.offset(0, y, z);
+        //put each BlockPos with the right orientation in the list
+        for (int d = 0; d < area; d++) {
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+
+                    BlockPos pos = switch (face) {
+                        case UP -> initialBlockPos.offset(x, -d, y);
+                        case DOWN -> initialBlockPos.offset(x, d, y);
+
+                        case NORTH -> initialBlockPos.offset(x, y, d);
+                        case SOUTH -> initialBlockPos.offset(x, y, -d);
+
+                        case EAST -> initialBlockPos.offset(-d, y, x);
+                        case WEST -> initialBlockPos.offset(d, y, x);
                     };
-                    if(!pos.equals(initialBlockPos)) positions.add(pos);
+
+                    if (!pos.equals(initialBlockPos)) {
+                        positions.add(pos);
+                    }
                 }
             }
         }
@@ -62,12 +71,17 @@ public class HammerItem extends DiggerItem {
         return positions;
     }
 
-    //Tool Tip
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
+    }
+
+    //tool tip
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.literal("§7Mines in a §a" + (radius * 2 + 1) + "x" + (radius * 2 + 1) + " §7area"));
+            tooltipComponents.add(Component.literal("§7Mines in a §a3x3x" + (area) + " §7area"));
             tooltipComponents.add(Component.literal("§9Durability: " + "§r" + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage()));
         } else {
             tooltipComponents.add(Component.literal("§7Press §aSHIFT §7to see more"));

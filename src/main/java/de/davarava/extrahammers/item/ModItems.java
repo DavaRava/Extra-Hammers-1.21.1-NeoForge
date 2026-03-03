@@ -33,7 +33,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
             () -> new HammerItem(Tiers.NETHERITE, new Item.Properties().fireResistant()
-                    .attributes(HammerItem.createAttributes(Tiers.NETHERITE, 7f, -3.5f)), 2));
+                    .attributes(HammerItem.createAttributes(Tiers.NETHERITE, 7f, -3.5f)), 3));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

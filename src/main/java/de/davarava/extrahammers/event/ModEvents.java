@@ -19,21 +19,24 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
+        //if hammer in hand
         Player player = event.getPlayer();
         ItemStack stack = player.getMainHandItem();
 
         if (!(stack.getItem() instanceof HammerItem hammer)) return;
         if (!(player instanceof ServerPlayer serverPlayer)) return;
 
+        //get blocks to be destroyed
         BlockPos mainPos = event.getPos();
         if (HARVESTED_BLOCKS.contains(mainPos)) return;
-        event.setCanceled(true);
 
-        var blocks = HammerItem.getBlocksToBeDestroyed(player.level(), mainPos, serverPlayer, hammer.radius);
+        var blocks = HammerItem.getBlocksToBeDestroyed(player.level(), mainPos, serverPlayer, hammer.area);
         blocks.add(mainPos);
 
+        //destroy them
         for (BlockPos pos : blocks) {
             if (!hammer.isCorrectToolForDrops(stack, player.level().getBlockState(pos))) continue;
+            if (pos == mainPos) continue;
 
             HARVESTED_BLOCKS.add(pos);
             serverPlayer.gameMode.destroyBlock(pos);

@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 public class ModCMT {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ExtraHammers.MODID);
 
-    public static final Supplier<CreativeModeTab> EXTRA_HAMMERS_TAB =CREATIVE_MODE_TAB.register("extrahammers_tab",
+    public static final Supplier<CreativeModeTab> EXTRA_HAMMERS_TAB = CREATIVE_MODE_TAB.register("extrahammers_tab",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.DIAMOND_HAMMER.get()))
                     .title(Component.translatable("creativetab.extrahammers.extrahammers"))

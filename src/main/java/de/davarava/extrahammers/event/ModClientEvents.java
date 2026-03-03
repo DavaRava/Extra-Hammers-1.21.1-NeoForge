@@ -21,48 +21,56 @@ import net.neoforged.neoforge.client.event.RenderHighlightEvent;
 public class ModClientEvents {
     @SubscribeEvent
     public static void hammerBlockOutlineRender(RenderHighlightEvent.Block event){
+        //get minecraft
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
 
+        //if hammer in hand
         ItemStack stack = mc.player.getMainHandItem();
         if (!(stack.getItem() instanceof HammerItem hammer)) return;
 
+        //check if block in front
         HitResult hit = mc.hitResult;
         if (!(hit instanceof BlockHitResult blockHit)) return;
 
+        //variables
         BlockPos center = blockHit.getBlockPos();
         Direction face = blockHit.getDirection();
 
-        int radius = hammer.radius;
+        int area = hammer.area;
 
-        // Kamera Offset
+        //cam position
         double camX = event.getCamera().getPosition().x;
         double camY = event.getCamera().getPosition().y;
         double camZ = event.getCamera().getPosition().z;
 
-        // Bounding Box abhängig von der Face berechnen
-        BlockPos min;
-        BlockPos max;
+        //get blocks
+        var blocks = HammerItem.getBlocksToBeDestroyed(
+                mc.level,
+                center,
+                mc.player,
+                hammer.area
+        ); blocks.add(center);
 
-        switch (face) {
-            case UP, DOWN -> {
-                min = center.offset(-radius, 0, -radius);
-                max = center.offset(radius, 0, radius);
-            }
-            case NORTH, SOUTH -> {
-                min = center.offset(-radius, -radius, 0);
-                max = center.offset(radius, radius, 0);
-            }
-            case EAST, WEST -> {
-                min = center.offset(0, -radius, -radius);
-                max = center.offset(0, radius, radius);
-            }
-            default -> {
-                return;
-            }
+        BlockPos min = center;
+        BlockPos max = center;
+
+        //calculate directions
+        for (BlockPos pos : blocks) {
+            min = new BlockPos(
+                    Math.min(min.getX(), pos.getX()),
+                    Math.min(min.getY(), pos.getY()),
+                    Math.min(min.getZ(), pos.getZ())
+            );
+
+            max = new BlockPos(
+                    Math.max(max.getX(), pos.getX()),
+                    Math.max(max.getY(), pos.getY()),
+                    Math.max(max.getZ(), pos.getZ())
+            );
         }
 
-        // +1 weil Block-AABB von min bis max+1 geht
+        //create outline box
         AABB box = new AABB(
                 min.getX(), min.getY(), min.getZ(),
                 max.getX() + 1, max.getY() + 1, max.getZ() + 1
@@ -70,13 +78,12 @@ public class ModClientEvents {
 
         MultiBufferSource buffer = mc.renderBuffers().bufferSource();
 
+        //render the box
         LevelRenderer.renderLineBox(
                 event.getPoseStack(),
                 buffer.getBuffer(RenderType.lines()),
                 box, 1f, 1f, 1f, 0.5f
         );
-
-
 
         event.setCanceled(true);
     }
