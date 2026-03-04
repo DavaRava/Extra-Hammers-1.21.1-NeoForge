@@ -21,7 +21,6 @@ import net.neoforged.neoforge.client.event.RenderHighlightEvent;
 public class ModClientEvents {
     @SubscribeEvent
     public static void hammerBlockOutlineRender(RenderHighlightEvent.Block event){
-        //get minecraft
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
 
@@ -35,9 +34,9 @@ public class ModClientEvents {
 
         //variables
         BlockPos center = blockHit.getBlockPos();
-        Direction face = blockHit.getDirection();
 
-        int area = hammer.area;
+        int radius = hammer.radius;
+        int depth = hammer.depth;
 
         //cam position
         double camX = event.getCamera().getPosition().x;
@@ -49,13 +48,14 @@ public class ModClientEvents {
                 mc.level,
                 center,
                 mc.player,
-                hammer.area
+                depth,
+                radius
         ); blocks.add(center);
 
         BlockPos min = center;
         BlockPos max = center;
 
-        //calculate directions
+        //calculate min / mac
         for (BlockPos pos : blocks) {
             min = new BlockPos(
                     Math.min(min.getX(), pos.getX()),
@@ -85,6 +85,6 @@ public class ModClientEvents {
                 box, 1f, 1f, 1f, 0.5f
         );
 
-        event.setCanceled(true);
+        //event.setCanceled(true);
     }
 }

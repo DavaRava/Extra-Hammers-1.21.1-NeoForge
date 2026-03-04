@@ -30,7 +30,7 @@ public class ModEvents {
         BlockPos mainPos = event.getPos();
         if (HARVESTED_BLOCKS.contains(mainPos)) return;
 
-        var blocks = HammerItem.getBlocksToBeDestroyed(player.level(), mainPos, serverPlayer, hammer.area);
+        var blocks = HammerItem.getBlocksToBeDestroyed(player.level(), mainPos, serverPlayer, hammer.depth, hammer.radius);
         blocks.add(mainPos);
 
         //destroy them

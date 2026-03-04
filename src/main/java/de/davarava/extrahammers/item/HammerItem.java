@@ -12,7 +12,6 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
@@ -21,15 +20,17 @@ import java.util.List;
 
 public class HammerItem extends DiggerItem {
     //radius
-    public final int area;
+    public final int depth;
+    public final int radius;
 
-    public HammerItem(Tier tier, Properties properties, int area) {
+    public HammerItem(Tier tier, Properties properties, int radius, int depth) {
         super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
-        this.area = area;
+        this.radius = radius;
+        this.depth = depth;
     }
 
     //returns a list with all BlockPoses in the area
-    public static List<BlockPos> getBlocksToBeDestroyed(Level level, BlockPos initialBlockPos, Player player, int area) {
+    public static List<BlockPos> getBlocksToBeDestroyed(Level level, BlockPos initialBlockPos, Player player, int depth, int radius) {
         List<BlockPos> positions = new ArrayList<>();
 
         // Eyes Direction
@@ -46,9 +47,9 @@ public class HammerItem extends DiggerItem {
         Direction face = traceResult.getDirection();
 
         //put each BlockPos with the right orientation in the list
-        for (int d = 0; d < area; d++) {
-            for (int x = -1; x <= 1; x++) {
-                for (int y = -1; y <= 1; y++) {
+        for (int d = 0; d < depth; d++) {
+            for (int x = -radius; x <= radius; x++) {
+                for (int y = -radius; y <= radius; y++) {
 
                     BlockPos pos = switch (face) {
                         case UP -> initialBlockPos.offset(x, -d, y);
@@ -81,8 +82,12 @@ public class HammerItem extends DiggerItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.literal("§7Mines in a §a3x3x" + (area) + " §7area"));
-            tooltipComponents.add(Component.literal("§9Durability: " + "§r" + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage()));
+            tooltipComponents.add(Component.literal
+                    ("§7Mines stone type blocks"));
+            tooltipComponents.add(Component.literal
+                    ("§7in a §a" + (radius*2+1) + "x" + (radius*2+1) + "x" + (depth) + " §7area"));
+            tooltipComponents.add(Component.literal
+                    ("§9Durability: " + "§r" + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage()));
         } else {
             tooltipComponents.add(Component.literal("§7Press §aSHIFT §7to see more"));
         }
