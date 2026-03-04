@@ -1,25 +1,78 @@
+# 🔨 Extra Hammers
 
-Installation information
-=======
+Extra Hammers is a Minecraft mod that adds powerful and well-designed hammers to improve mining in Minecraft.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+**⚠️ The mod is currently in Beta – features may change and bugs can occur.**
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## ✨ About The Mod
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+Extra Hammers introduces new hammer tools that allow you to mine blocks in a larger area instead of breaking just a single block.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Depending on the hammer **tier**, you can mine:
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+**3x3x1**, 
+**3x3x2**, 
+**3x3x3**, 
+_(and more planned 👀)_
+
+---
+
+Tool tiers (Wood, Stone, Iron, etc.)
+
+Direction-based area mining
+
+An outline preview shows exactly which blocks will be mined before you break them.
+
+## 🧪 Beta Status
+
+This mod is still in active development.
+
+That means:
+Features may be adjusted,
+Balancing is not final,
+Bugs may exist,
+New mechanics will be added
+
+If you encounter issues, please report them!
+
+## 🐞 Issues & Feedback
+
+Found a bug? Have a suggestion?
+
+Please use the **Issues tab** on GitHub:
+👉 [Issue Site](https://github.com/DavaRava/Extra-Hammers-1.21.1-NeoForge/issues)
+
+Feedback and ideas are always welcome!
+
+## 📦 Downloads
+
+You can download the latest releases here:
+
+CurseForge:
+👉 [Download](https://www.curseforge.com/minecraft/mc-mods/extra-hammers)
+
+## 🚀 Planned Features
+
+- Custom enchantments
+- Upgrade system
+- Special effects & particles
+- Configurable radius/depth
+
+## 🛠 Installation
+
+1. Install NeoForge for your Minecraft version.
+2. Download the latest mod release.
+3. Place the .jar file into your Mods folder.
+4. Launch the game.
+
+## 💡 Contributing
+
+Suggestions and improvements are welcome.
+Since this project is in Beta, community feedback helps shape its future.
+
+## 📜 License
+
+### **MIT**
+
+Thanks for checking out Extra Hammers 🔨
+More updates coming soon!

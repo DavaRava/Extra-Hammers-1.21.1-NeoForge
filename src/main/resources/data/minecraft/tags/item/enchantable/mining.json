@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "extrahammers:wooden_hammer",
+    "extrahammers:stone_hammer",
+    "extrahammers:iron_hammer",
+    "extrahammers:golden_hammer",
+    "extrahammers:diamond_hammer",
+    "extrahammers:netherite_hammer"
+  ]
+}
