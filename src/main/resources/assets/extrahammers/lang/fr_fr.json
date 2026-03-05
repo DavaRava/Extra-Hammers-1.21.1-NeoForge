@@ -1,0 +1,12 @@
+{
+  "item.extrahammers.wooden_hammer": "Marteau en bois",
+  "item.extrahammers.stone_hammer": "Marteau en pierre",
+  "item.extrahammers.iron_hammer": "Marteau en fer",
+  "item.extrahammers.golden_hammer": "Marteau en or",
+  "item.extrahammers.diamond_hammer": "Marteau en diamant",
+  "item.extrahammers.netherite_hammer": "Marteau en Netherite",
+
+  "creativetab.extrahammers.extrahammers": "Extra Hammers",
+
+  "extrahammers.configuration.hammer_block_outline_black": "Le contour est-il noir?"
+}
