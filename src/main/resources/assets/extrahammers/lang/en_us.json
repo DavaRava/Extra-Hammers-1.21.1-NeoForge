@@ -6,5 +6,7 @@
   "item.extrahammers.diamond_hammer": "Diamond Hammer",
   "item.extrahammers.netherite_hammer": "Netherite Hammer",
 
-  "creativetab.extrahammers.extrahammers": "Extra Hammers"
+  "creativetab.extrahammers.extrahammers": "Extra Hammers",
+
+  "extrahammers.configuration.hammer_block_outline_black": "Is Outline Color Black?"
 }
