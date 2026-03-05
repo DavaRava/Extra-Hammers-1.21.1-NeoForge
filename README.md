@@ -2,7 +2,7 @@
 
 Extra Hammers is a Minecraft mod that adds powerful and well-designed hammers to improve mining in Minecraft.
 
-**⚠️ The mod is currently in Beta – features may change and bugs can occur.**
+**⚠️ The mod is currently in Testing Phase – features may change and bugs can occur.**
 
 ## ✨ About The Mod
 
