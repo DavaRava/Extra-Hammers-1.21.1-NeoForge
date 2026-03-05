@@ -82,7 +82,7 @@ public class ModClientEvents {
         LevelRenderer.renderLineBox(
                 event.getPoseStack(),
                 buffer.getBuffer(RenderType.lines()),
-                box, 1f, 1f, 1f, 0.5f
+                box, 0f, 0f, 0f, 0.5f
         );
 
         //event.setCanceled(true);
