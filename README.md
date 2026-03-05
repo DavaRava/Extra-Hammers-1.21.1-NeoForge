@@ -1,5 +1,8 @@
 # 🔨 Extra Hammers
 
+👉 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/extra-hammers)                                                                  
+👉 [Modrinth](https://modrinth.com/mod/extra-hammers)
+
 Extra Hammers is a Minecraft mod that adds powerful and well-designed hammers to improve mining in Minecraft.
 
 **⚠️ The mod is currently in Testing Phase – features may change and bugs can occur.**
@@ -48,8 +51,8 @@ Feedback and ideas are always welcome!
 
 You can download the latest releases here:
 
-CurseForge:
-👉 [Download](https://www.curseforge.com/minecraft/mc-mods/extra-hammers)
+👉 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/extra-hammers)                                                                  
+👉 [Modrinth](https://modrinth.com/mod/extra-hammers)
 
 ## 🚀 Planned Features
 
