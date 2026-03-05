@@ -1,5 +1,6 @@
 package de.davarava.extrahammers.event;
 
+import de.davarava.extrahammers.Config;
 import de.davarava.extrahammers.ExtraHammers;
 import de.davarava.extrahammers.item.HammerItem;
 import net.minecraft.client.Minecraft;
@@ -79,11 +80,21 @@ public class ModClientEvents {
         MultiBufferSource buffer = mc.renderBuffers().bufferSource();
 
         //render the box
-        LevelRenderer.renderLineBox(
-                event.getPoseStack(),
-                buffer.getBuffer(RenderType.lines()),
-                box, 0f, 0f, 0f, 0.5f
-        );
+        boolean isBlack = Config.IS_BLOCK_OUTLINE_BLACK.getAsBoolean();
+
+        if (isBlack){
+            LevelRenderer.renderLineBox(
+                    event.getPoseStack(),
+                    buffer.getBuffer(RenderType.lines()),
+                    box, 0f, 0f, 0f, 0.5f
+            );
+        } else {
+            LevelRenderer.renderLineBox(
+                    event.getPoseStack(),
+                    buffer.getBuffer(RenderType.lines()),
+                    box, 1f, 1f, 1f, 0.5f
+            );
+        }
 
         //event.setCanceled(true);
     }
