@@ -8,5 +8,6 @@
 
   "creativetab.extrahammers.extrahammers": "Extra Hammers",
 
-  "extrahammers.configuration.hammer_block_outline_black": "Outline Color Black?"
+  "extrahammers.configuration.hammer_block_outline_black": "Outline Color Black?",
+  "extrahammers.configuration.hammer_particles": "Particles"
 }
