@@ -9,7 +9,9 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -56,7 +58,7 @@ public class ModClientEvents {
         BlockPos min = center;
         BlockPos max = center;
 
-        //calculate min / mac
+        //calculate
         for (BlockPos pos : blocks) {
             min = new BlockPos(
                     Math.min(min.getX(), pos.getX()),

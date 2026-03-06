@@ -77,6 +77,11 @@ public class HammerItem extends DiggerItem {
         return true;
     }
 
+    @Override
+    public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        return super.isValidRepairItem(toRepair, repair);
+    }
+
     //tool tip
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
