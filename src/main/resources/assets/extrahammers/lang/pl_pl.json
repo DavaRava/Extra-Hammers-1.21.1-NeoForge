@@ -1,0 +1,12 @@
+{
+  "item.extrahammers.wooden_hammer": "Drewniany młot",
+  "item.extrahammers.stone_hammer": "Kamienny młot",
+  "item.extrahammers.iron_hammer": "Żelazny młot",
+  "item.extrahammers.golden_hammer": "Złoty młot",
+  "item.extrahammers.diamond_hammer": "Diamentowy młot",
+  "item.extrahammers.netherite_hammer": "Netheritowy młot",
+
+  "creativetab.extrahammers.extrahammers": "Extra Hammers",
+
+  "extrahammers.configuration.hammer_block_outline_black": "Outline Color Black?"
+}

@@ -1,0 +1,12 @@
+{
+  "item.extrahammers.wooden_hammer": "Holzhammer",
+  "item.extrahammers.stone_hammer": "Steinhammer",
+  "item.extrahammers.iron_hammer": "Eisenhammer",
+  "item.extrahammers.golden_hammer": "Goldhammer",
+  "item.extrahammers.diamond_hammer": "Diamantenhammer",
+  "item.extrahammers.netherite_hammer": "Netheritehammer",
+
+  "creativetab.extrahammers.extrahammers": "Extra Hammers",
+
+  "extrahammers.configuration.hammer_block_outline_black": "Outline Color Black?"
+}
