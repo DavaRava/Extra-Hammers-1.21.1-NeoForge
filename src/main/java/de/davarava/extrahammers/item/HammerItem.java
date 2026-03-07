@@ -1,5 +1,6 @@
 package de.davarava.extrahammers.item;
 
+import de.davarava.extrahammers.other.ModDataComponents;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -86,13 +87,17 @@ public class HammerItem extends DiggerItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        //radius info
+        tooltipComponents.add(Component.literal("§7Mines stone type blocks"));
+        tooltipComponents.add(Component.literal("§7in a §a" + (radius*2+1) + "x" + (radius*2+1) + "x" + (depth) + " §7area"));
+        tooltipComponents.add(Component.literal(""));
+
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.literal
-                    ("§7Mines stone type blocks"));
-            tooltipComponents.add(Component.literal
-                    ("§7in a §a" + (radius*2+1) + "x" + (radius*2+1) + "x" + (depth) + " §7area"));
-            tooltipComponents.add(Component.literal
-                    ("§9Durability: " + "§r" + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage()));
+            //extra info
+            if(!(stack.get(ModDataComponents.BLOCKS_MINED) == null)){
+                tooltipComponents.add(Component.literal("§9Blocks mined: §r" + stack.get(ModDataComponents.BLOCKS_MINED)));
+            }
+            tooltipComponents.add(Component.literal("§9Durability: §r" + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage()));
         } else {
             tooltipComponents.add(Component.literal("§7Press §aSHIFT §7to see more"));
         }

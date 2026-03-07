@@ -1,6 +1,7 @@
-package de.davarava.extrahammers.item;
+package de.davarava.extrahammers.other;
 
 import de.davarava.extrahammers.ExtraHammers;
+import de.davarava.extrahammers.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
