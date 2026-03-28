@@ -88,15 +88,13 @@ public class HammerItem extends DiggerItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         //radius info
-        tooltipComponents.add(Component.literal("§7Mines stone type blocks"));
-        tooltipComponents.add(Component.literal("§7in a §a" + (radius*2+1) + "x" + (radius*2+1) + "x" + (depth) + " §7area"));
+        tooltipComponents.add(Component.literal("§7Mines stone type blocks and ores"));
         tooltipComponents.add(Component.literal(""));
 
         if (Screen.hasShiftDown()) {
             //extra info
-            if(!(stack.get(ModDataComponents.BLOCKS_MINED) == null)){
-                tooltipComponents.add(Component.literal("§9Blocks mined: §r" + stack.get(ModDataComponents.BLOCKS_MINED)));
-            }
+            tooltipComponents.add(Component.literal("§9Mode: §r" + (radius*2+1) + "x" + (radius*2+1) + "x" + (depth)));
+            tooltipComponents.add(Component.literal("§9Blocks mined: §r" + stack.getOrDefault(ModDataComponents.BLOCKS_MINED, 0)));
             tooltipComponents.add(Component.literal("§9Durability: §r" + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage()));
         } else {
             tooltipComponents.add(Component.literal("§7Press §aSHIFT §7to see more"));

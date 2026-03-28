@@ -72,12 +72,7 @@ public class ModEvents {
         }
 
         //set blocks_mined
-        var previous = stack.get(ModDataComponents.BLOCKS_MINED);
-        if(previous == null){
-            stack.set(ModDataComponents.BLOCKS_MINED, blocks_mined);
-        } else {
-            stack.set(ModDataComponents.BLOCKS_MINED, previous + blocks_mined);
-        }
-
+        var previous = stack.getOrDefault(ModDataComponents.BLOCKS_MINED, 0);
+        stack.set(ModDataComponents.BLOCKS_MINED, previous + blocks_mined);
     }
 }
